@@ -4,25 +4,24 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "<FILL_IN: your team name>"
+team_name: "Varun"
 
 primary_contact:
   name: "Varun"
-  email: "<FILL_IN: your email>"
-  phone: "<FILL_IN: your phone>"
+  email: "bunnyvarun43@gmail.com"
+  phone: "9398018136"
 
 team_members:
   - name: "Varun"
-    email: "<FILL_IN: your email>"
+    email: "bunnyvarun43@gmail.com"
     role: "ML Engineer"
-  # Add teammates here if you're not going solo
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "<FILL_IN: https://github.com/YOUR_USERNAME/redrob-ranker>"
+github_repo: "https://github.com/Raghuvarun93/Redrob-AI-Candidate-Ranking-System"
 
-sandbox_link: "<FILL_IN: e.g. https://YOUR_USERNAME-redrob-ranker.streamlit.app>"
+sandbox_link: "Not deployed yet"
 
 reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./output/submission.csv"
 
@@ -30,11 +29,11 @@ reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./
 # Compute environment
 # ============================================================================
 compute:
-  platform: "<FILL_IN: e.g. your laptop model, or 'Linux sandbox, 4 vCPU'>"
+  platform: "Windows PC (4-core CPU)"
   cpu_cores: 4
   ram_gb: 16
-  python_version: "3.x"   # run `python3 --version` and fill in
-  os: "Linux"
+  python_version: "3.13.6"
+  os: "Windows"
   uses_gpu_for_inference: false
   has_network_during_ranking: false
   pre_computation_required: false
