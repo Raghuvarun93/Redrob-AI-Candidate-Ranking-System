@@ -1,0 +1,98 @@
+# Redrob Hackathon — Submission Metadata
+# Fill in the placeholders marked <FILL_IN> before submitting via the portal.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "<FILL_IN: your team name>"
+
+primary_contact:
+  name: "Varun"
+  email: "<FILL_IN: your email>"
+  phone: "<FILL_IN: your phone>"
+
+team_members:
+  - name: "Varun"
+    email: "<FILL_IN: your email>"
+    role: "ML Engineer"
+  # Add teammates here if you're not going solo
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "<FILL_IN: https://github.com/YOUR_USERNAME/redrob-ranker>"
+
+sandbox_link: "<FILL_IN: e.g. https://YOUR_USERNAME-redrob-ranker.streamlit.app>"
+
+reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./output/submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "<FILL_IN: e.g. your laptop model, or 'Linux sandbox, 4 vCPU'>"
+  cpu_cores: 4
+  ram_gb: 16
+  python_version: "3.x"   # run `python3 --version` and fill in
+  os: "Linux"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude (Anthropic) as a development assistant throughout: reading and
+  summarizing the JD/spec/schema documents, profiling the candidate dataset
+  to identify trap patterns (keyword-stuffed skills lists, honeypot profiles,
+  hobbyist-vs-professional framing), designing the feature-extraction and
+  scoring architecture, and writing/iterating on the Python implementation.
+  All design decisions (scoring weights, disqualifier rules, honeypot
+  detection logic) were reviewed and validated against real output by
+  manually inspecting top-20/50/100 rankings before finalizing. No candidate
+  data was sent to any external LLM API — the ranking pipeline itself uses
+  no AI tools or external API calls at runtime, only Python stdlib.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Rule-based, explainable ranker — no embeddings model, no LLM calls, no
+  network access at ranking time. Five JD-derived scoring components: (1)
+  career fit — seniority band + product-company vs. consulting-only
+  experience, (2) shipped-system evidence — retrieval/ranking/recommendation
+  terms found in career HISTORY descriptions (not skills lists, to avoid the
+  keyword-stuffing trap), plus evaluation-framework experience (NDCG/MRR/A-B
+  testing), (3) technical depth — vector DB and embedding-model experience,
+  (4) location/logistics fit — Pune/Noida preference, relocation, notice
+  period, (5) behavioral availability — recency, recruiter response rate,
+  interview completion, GitHub activity. Explicit JD disqualifiers (pure
+  research-only, all-consulting career, CV/speech-primary, recent-LLM-wrapper-
+  only, seniority-escalation title-chasing) are applied as multiplicative
+  penalties so a single hard disqualifier can suppress an otherwise
+  keyword-rich profile. Skills-list-only term matches (no corroborating
+  career history) are heavily discounted relative to career-history matches,
+  specifically to defeat keyword-stuffed trap profiles. Self-disclosed
+  "hobbyist/side-project" framing is detected and discounted separately from
+  honeypots — these are honest candidates, just not production-ready, so they
+  are down-weighted rather than excluded. Honeypot detection checks
+  self-consistency across fields (years-of-experience vs. career-history
+  total, summary text vs. profile field, expert-proficiency-with-zero-usage
+  skill claims) and excludes flagged candidates entirely from ranking, rather
+  than down-weighting them. Runtime is ~60-70 seconds for the full 100K
+  candidates on a 4-core CPU with no GPU and no network calls.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

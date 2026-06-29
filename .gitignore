@@ -1,0 +1,7 @@
+data/candidates.jsonl
+data/candidates.jsonl.gz
+output/*.csv
+__pycache__/
+*.pyc
+.DS_Store
+.streamlit/secrets.toml
