@@ -6,6 +6,12 @@ Ranks the 100,000-candidate pool against the Senior AI Engineer JD and
 produces a top-100 CSV with explainable, fact-grounded reasoning for every
 ranked candidate.
 
+## 🚀 Live Demo
+
+**Try it now:** [Streamlit Demo](https://redrob-ai-candidate-ranking-system-9oqxpkkwaeyveiqk8tdfn5.streamlit.app/)
+
+Upload your own candidate sample or use the built-in demo data to see the ranking system in action!
+
 ## Quick start
 
 ```bash

@@ -4,7 +4,7 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "Varun"
+team_name: " AI Recruit Varun"
 
 primary_contact:
   name: "Varun"
@@ -12,7 +12,7 @@ primary_contact:
   phone: "9398018136"
 
 team_members:
-  - name: "Varun"
+  - name: " Vaddi Raghu Varun Kumar Reddy"
     email: "bunnyvarun43@gmail.com"
     role: "ML Engineer"
 
@@ -21,7 +21,7 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/Raghuvarun93/Redrob-AI-Candidate-Ranking-System"
 
-sandbox_link: "Not deployed yet"
+sandbox_link: "https://redrob-ai-candidate-ranking-system-9oqxpkkwaeyveiqk8tdfn5.streamlit.app/"
 
 reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./output/submission.csv"
 
