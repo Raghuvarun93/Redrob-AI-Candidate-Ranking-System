@@ -2,6 +2,5 @@
 # Feature extraction, scoring, and reasoning generation use only the
 # Python 3 standard library (re, json, csv, datetime, dataclasses, math).
 #
-# Listed below for completeness / future extension (not imported by rank.py):
-# pandas==2.2.2       # optional, for exploratory analysis only
-# streamlit==1.36.0   # used by sandbox/app.py for the hosted demo
+# Listed below for the Streamlit demo only (not imported by rank.py):
+streamlit>=1.58.0   # used by sandbox/app.py for the hosted demo
